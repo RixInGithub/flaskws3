@@ -1,1 +1,3 @@
-python setup.py bdist --format=wininst,zip,gztar
+python setup.py sdist
+python setup.py bdist_wheel
+twine upload dist/*
