@@ -14,7 +14,8 @@ Here's some starting code for this mini tutor:
 
 ```py
 import flaskws
-app = Flask(__name__, template_folder="templates")
+
+app = Flask(__name__)
 app.wsgi_app = flaskws.WsMiddleware(app.wsgi_app)
 ```
 <!-- # app.run() -->
@@ -65,9 +66,9 @@ Here's some sample code for you:
 ```py
 from flaskws import ws_connect
 
-with ws_connect("ws://test.host/ws/123") as c: # Could be used as a class too, just remember to `close`!!
-	if c.handshake():
-		c.send("somethingsomething")
+with ws_connect("ws://example.com/wsgateway/") as ws: # Could be used as a class too, just remember to `close()`!!
+	if ws.handshake():
+		ws.send("somethingsomething")
 		for frame in c:
 			print(frame)
 ```
