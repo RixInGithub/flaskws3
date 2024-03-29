@@ -43,7 +43,9 @@ class WsMiddleware(object):
                 continue
             if th.is_alive():
                 continue
-            th.join()
+            try:
+                th.join()
+            except: pass
             logging.debug('thread %s joinned.' % th.name)
         try:
             return self.wsgi_app(environ, start_response)
