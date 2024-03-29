@@ -2,7 +2,7 @@
 
 Actually good WebSocket for Flask.
 
-Keep in mind that this is just a patched version; no changes were made, so original docs are still valid.
+Keep in mind that this is just a patched version of [this Python 2 original](https://github.com/smallfz/flask-ws); no changes were made, so original docs are still valid.
 
 For convenience, the module name didn't change too.
 
