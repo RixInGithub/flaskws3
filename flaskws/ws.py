@@ -8,10 +8,10 @@ from werkzeug.routing import Map, Rule
 # from werkzeug.wrappers import Response as BaseResponse
 # from werkzeug.datastructures import Headers
 import threading
-from defs import *
-from wssock import WsSocket, _BaseWsSock
-from wsuwsgi import UwsgiWsSock, has_uwsgi
-from wstornado import TornadoWebSocketAdapter
+from .defs import *
+from .wssock import WsSocket, _BaseWsSock
+from .wsuwsgi import UwsgiWsSock, has_uwsgi
+from .wstornado import TornadoWebSocketAdapter
 
     
 class WsDeliver(Exception):
@@ -47,7 +47,7 @@ class WsMiddleware(object):
             logging.debug('thread %s joinned.' % th.name)
         try:
             return self.wsgi_app(environ, start_response)
-        except WsDeliver, e:
+        except WsDeliver as e:
             if has_uwsgi:
                 key = environ.get('HTTP_SEC_WEBSOCKET_KEY', '')
                 origin = environ.get('HTTP_ORIGIN', '')

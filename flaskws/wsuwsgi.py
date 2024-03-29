@@ -1,10 +1,10 @@
 #-*- coding: utf-8 -*-
 
 from threading import Thread, Event
-from Queue import Queue, Empty
-from defs import *
-from protocol import parse_frame, make_frame
-from wssock import _BaseWsSock
+from queue import Queue, Empty
+from .defs import *
+from .protocol import parse_frame, make_frame
+from .wssock import _BaseWsSock
 
 try:
     import uwsgi

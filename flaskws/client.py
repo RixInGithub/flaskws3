@@ -3,15 +3,16 @@
 import os
 import time
 import socket
-import urllib, urlparse
+import urllib
+from urllib.parse import urlparse
 import hashlib
 import threading
-import Queue
-from cStringIO import StringIO
+import queue as Queue
+from io import StringIO
 import base64
-from defs import *
-from protocol import parse_frame, make_frame
-from utils import r_select
+from .defs import *
+from .protocol import parse_frame, make_frame
+from .utils import r_select
 
 
 class Client(object):
@@ -236,9 +237,9 @@ def ws_connect(*args, **kargs):
 if __name__ == '__main__':
     with ws_connect('ws://50.gz2.yj.hp:8082/ws') as c:
         if c.handshake():
-            print 'handshake: ok'
+            print('handshake: ok')
             c.send('{"op":"LIST_NOTES","principal":"anonymous","ticket":"anonymous"}')
             for msg in c:
-                print msg
+                print(msg)
                 break
     # ws_connect('ws://localhost:10080/hub/notebooks/notebook/2BA4MWGBT/_.ws')

@@ -2,8 +2,8 @@
 
 import os
 import struct
-from cStringIO import StringIO
-from defs import *
+from io import StringIO
+from .defs import *
 
 try:
     import tornado

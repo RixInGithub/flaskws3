@@ -3,7 +3,7 @@
 import logging
 from tornado.wsgi import WSGIContainer
 from tornado import httputil
-from ws import TornadoWebSocketAdapter
+from .ws import TornadoWebSocketAdapter
 
 
 class WsWSGIContainer(WSGIContainer):

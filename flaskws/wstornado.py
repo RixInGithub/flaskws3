@@ -6,8 +6,8 @@ import base64
 import traceback
 
 from threading import Thread, Event
-from Queue import Queue, Empty
-from defs import *
+from queue import Queue, Empty
+from .defs import *
 
 
 try:
@@ -108,7 +108,7 @@ class TornadoWebSocketAdapter(object):
     def _handler(self, handler, values):
         try:
             handler(self, values)
-        except Exception, e:
+        except Exception as e:
             logging.error('_handler -> handler()')
             logging.error(traceback.format_exc(e))
         self._abort()
@@ -122,7 +122,7 @@ class TornadoWebSocketAdapter(object):
                 break
             except WsClosedByRemote:
                 break
-            except Exception, e:
+            except Exception as e:
                 logging.error('_recv -> parse_frame(f)')
                 logging.error(traceback.format_exc(e))
                 break
@@ -170,7 +170,7 @@ class TornadoWebSocketAdapter(object):
                 break
             except WsClosedByRemote:
                 break
-            except Exception, e:
+            except Exception as e:
                 logging.error('_recv_for_server -> parse_frame')
                 logging.error(traceback.format_exc(e))
                 break
@@ -210,7 +210,7 @@ class TornadoWebSocketAdapter(object):
                 self.f.write(frame)
         except (StreamClosedError, WsIOError):
             self._abort()
-        except Exception, e:
+        except Exception as e:
             logging.error('send -> self.f.write(frame)')
             logging.error(traceback.format_exc(e))
             self._abort()
@@ -232,7 +232,7 @@ class TornadoWebSocketAdapter(object):
             try:
                 if not self.f.closed():
                     self.f.close()
-            except Exception, e:
+            except Exception as e:
                 logging.warn('_abort -> self.f.close()')
                 logging.warn(traceback.format_exc(e))
             self.f = None

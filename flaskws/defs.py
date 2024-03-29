@@ -2,7 +2,7 @@
 
 import time
 import threading
-from cStringIO import StringIO
+from io import StringIO
 
 
 crlf = '\r\n'

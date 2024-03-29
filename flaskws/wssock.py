@@ -7,10 +7,10 @@ import base64
 import traceback
 
 from threading import Thread, Event
-from Queue import Queue, Empty
-from defs import *
-from protocol import parse_frame, make_frame
-from utils import r_select
+from queue import Queue, Empty
+from .defs import *
+from .protocol import parse_frame, make_frame
+from .utils import r_select
 
 
 class _BaseWsSock(object):
