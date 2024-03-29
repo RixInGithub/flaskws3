@@ -4,15 +4,20 @@ from distutils.core import setup
 
 
 packages = (
-    'flaskws',
-    )
+	"flaskws",
+)
 
-setup(name='flaskws3', 
-      version='0.0.2.3', 
-      packages=packages, 
-      install_requires=['tornado'], 
-      description='Websocket for flask.',
-      author='smallfz', 
-      author_email='small.fz@gmail.com')
+setup(
+	name="flaskws3",
+	version="3.0.1",
+	packages=packages,
+	install_requires=["flask", "tornado"],
+	description="WebSockets for Flask.",
+	author="RixTheTyrunt",
+	author_email="rixthetyrunt@gmail.com",
+	url="https://github.com/RixInGithub/flaskws3",
+	long_description=open("README.md", "r").read(),
+	long_description_content_type="text/markdown"
+)
 
 
