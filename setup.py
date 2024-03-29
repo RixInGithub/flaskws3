@@ -9,7 +9,7 @@ packages = (
 
 setup(
 	name="flaskws3",
-	version="3.0.4",
+	version="3.0.4.1",
 	packages=packages,
 	install_requires=["flask", "tornado"],
 	description="WebSockets for Flask.",
